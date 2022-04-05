@@ -5,7 +5,7 @@
       <strong>
         <h2>Patient List</h2>
       </strong>
-      <router-link to="/CreatePatient" class="add">Add new patient</router-link>
+      <router-link to="/create-patient" class="add">Add new patient</router-link>
     </li>
     <Loader v-if="loading" />
     <table v-else-if="patients.length">
@@ -54,9 +54,9 @@
 
 
 <script>
-import Loader from "@/components/AdditionalTools/Loader";
-import NavBar from "@/components/AdditionalTools/NaVBar";
-import Patient from "@/components/Patients/Patient";
+import Loader from "@/components/additional-tools/loader";
+import NavBar from "@/components/additional-tools/nav-bar";
+import Patient from "@/components/patients/patient";
 
 export default {
   data() {
@@ -66,7 +66,7 @@ export default {
     };
   },
   mounted() {
-    fetch("https://localhost:44377/api/Patients")
+    fetch("https://localhost:44377/api/patients")
       .then((response) => response.json())
       .then((json) => {
         this.patients = json;

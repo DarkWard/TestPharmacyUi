@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/views/Home'
+import Home from '@/views/home'
 
 Vue.use(Router)
 
@@ -12,16 +12,17 @@ export default new Router({
             component: Home
         },
         {
-            path: '/Patient',
-            component: () => import('@/views/Patients/PatientList.vue')
+            path: '/patient',
+            component: () => import('@/views/patients/patient-list.vue')
+            
         },
         {
-            path: '/Pharmacies',
-            component: () => import('@/views/Pharmacies.vue')
+            path: '/pharmacies',
+            component: () => import('@/views/pharmacies.vue')
         },
         {
-            path: '/CreatePatient',
-            component: () => import('@/views/Patients/Create.vue')
+            path: '/create-patient',
+            component: () => import('@/views/patients/create.vue')
         },
     ]
 })

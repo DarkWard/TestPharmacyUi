@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import NavBar from '@/components/AdditionalTools/NaVBar'
+import NavBar from '@/components/additional-tools/nav-bar'
 
 export default {
 components: {
