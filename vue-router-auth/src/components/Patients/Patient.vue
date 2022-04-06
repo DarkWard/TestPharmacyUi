@@ -1,24 +1,42 @@
 <template>
   <tr>
-    <td>{{patient.FirstName}}</td>
-    <td>{{patient.LastName}}</td>
-    <td>{{patient.StateCode}}</td>
-    <td>{{patient.PharmacyName}}</td>
-    <td width="15%">{{patient.PharmacyAssignDate}}</td>
+    <td>{{ patient.FirstName }}</td>
+    <td>{{ patient.LastName }}</td>
+    <td>{{ patient.StateCode }}</td>
+    <td>{{ patient.PharmacyName }}</td>
+    <td width="15%">{{ patient.PharmacyAssignDate }}</td>
     <td class="buttons">
-      <button class="edit">Edit</button>
-      <button class="delete">Delete</button>
+      <router-link
+        to="/edit-patient"
+        class="edit"
+        v-bind:patientId="patient.Id"
+        v-bind:firstName="patient.FirstName"
+        v-bind:lastName="patient.LastName"
+        v-bind:stateCode="patient.StateCode"
+        v-bind:pharmacyName="patient.PharmacyName"
+        
+        >Edit</router-link
+      >
+      <Delete v-bind:patientId="patient.Id" />
     </td>
   </tr>
 </template>
+      <Edit v-bind:patientId = "patient.Id" />
 
 <script>
+import Delete from "@/components/patients/delete.vue"
+import Edit from "@/views/patients/edit.vue"
+
 export default {
   props: {
     patient: {
       required: true
     }
   },
+  components: {
+    Delete,
+    Edit
+  }
 }
 </script>
 
@@ -38,22 +56,21 @@ TD {
 }
 
 .edit {
+  width: 60px;
   height: 40px;
-  display: flex;
   background: cornflowerblue;
   color: #fff;
   border-radius: 10%;
   font-weight: bold;
-  line-height: 33px;
+  text-align: center;
+  padding: 8px 15px;
 }
 
 .delete {
   height: 40px;
-  display: flex;
   background: red;
   color: #fff;
   border-radius: 10%;
   font-weight: bold;
-  line-height: 33px;
 }
 </style>

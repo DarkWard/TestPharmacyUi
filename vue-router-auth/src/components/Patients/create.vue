@@ -22,36 +22,45 @@
         <label for="pharmacyName">Pharmacy Name</label>
         <input type="text" id="pharmacyName" v-model="newPatinet.pharmacyName" />
       </div>
-      <button>Create</button>
+      <button class="create">Create</button>
     </form>
+    <router-link to="/patient" class="back">Back to list</router-link>
   </div>
 </template>
 
 <script>
 import NavBar from "@/components/additional-tools/nav-bar";
-import axios from 'axios'
+import axios from "axios";
 
 export default {
   data() {
     return {
       newPatinet: {
-        firstName: '',
-        lastName: '',
-        stateCode: '',
-        pharmacyName: '',
+        firstName: "",
+        lastName: "",
+        stateCode: "",
+        pharmacyName: "",
         pharmacyAssignDate: Date.now(),
       },
-    }
+    };
   },
   components: {
     NavBar,
   },
   methods: {
     createPatient() {
-      axios.post('https://localhost:44377/api/Patients', this.newPatinet)
-        .then(response => console.log(response))
-        .catch(error => console.log(error)); 
-        console.log(this.newPatinet)
+      if (
+        this.newPatinet.firstName.trim() &&
+        this.newPatinet.lastName.trim() &&
+        this.newPatinet.stateCode.trim() &&
+        this.newPatinet.pharmacyName.trim()
+      ) {
+        axios
+          .post("https://localhost:44377/api/Patients", this.newPatinet)
+          .then((response) => console.log(response))
+          .catch((error) => console.log(error));
+        this.$router.push("/patient");
+      }
     },
   },
 };
@@ -63,7 +72,15 @@ h2 {
   margin: 20px;
 }
 
-button {
+.back {
+  background-color: black;
+  color: white;
+  text-align: left;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.create {
   display: flex;
   width: 120px;
   margin: 20px;

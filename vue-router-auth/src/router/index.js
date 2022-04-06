@@ -18,11 +18,16 @@ export default new Router({
         },
         {
             path: '/pharmacies',
-            component: () => import('@/views/pharmacies.vue')
+            component: () => import('@/views/pharmacy-list.vue')
         },
         {
             path: '/create-patient',
-            component: () => import('@/views/patients/create.vue')
+            component: () => import('@/components/patients/create.vue')
         },
+        {
+            path: '/edit-patient',
+            component: () => import('@/views/patients/edit.vue')
+        },
+        
     ]
 })

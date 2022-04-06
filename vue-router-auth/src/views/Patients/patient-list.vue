@@ -31,28 +31,6 @@
    2) есть фильтр дропдаун с опциями: No, One month, Three monthes, фильтрует по Pharmacy Assign Date
    3) есть пагинация
 
-<tbody>
-            @foreach (var obj in Model)
-            {
-                <tr>
-                    <td width="20%">
-                        @obj.Name
-                    </td>
-                    <td width="20%">
-                        @obj.Address
-                    </td>
-                    <td width="20%">
-                        @obj.ContactEmail
-                    </td>
-                    <td width="20%">
-                        @obj.ContactPhone
-                    </td>
-                    
-                </tr>
-            }
-</tbody>
-
-
 <script>
 import Loader from "@/components/additional-tools/loader";
 import NavBar from "@/components/additional-tools/nav-bar";
